@@ -484,86 +484,106 @@ public:
     }
 };
 
-void disassembleCube(Kubic_Rubica& a, int* activities, int size) {
+void disassembleCube(Kubic_Rubica &rube_cub, int *activities, int size) {
     for (int i = 0; i < size; ++i) {
-        if (activities[i] == 0) {
-            a.rotate_up(0);
-        } else if (activities[i] == 1) {
-            a.rotate_up(1);
-        } else if (activities[i] == 2) {
-            a.rotate_up(2);
-        } else if (activities[i] == 3) {
-            a.rotate_front(0);
-        } else if (activities[i] == 4) {
-            a.rotate_front(1);
-        } else if (activities[i] == 5) {
-            a.rotate_front(2);
-        } else if (activities[i] == 6) {
-            a.rotate_right(0);
-        } else if (activities[i] == 7) {
-            a.rotate_right(1);
-        } else if (activities[i] == 8) {
-            a.rotate_right(2);
-        } else if (activities[i] == 9) {
-            a.rotate_down(0);
-        } else if (activities[i] == 10) {
-            a.rotate_down(1);
-        } else if (activities[i] == 11) {
-            a.rotate_down(2);
-        } else if (activities[i] == 12) {
-            a.rotate_back(0);
-        } else if (activities[i] == 13) {
-            a.rotate_back(1);
-        } else if (activities[i] == 14) {
-            a.rotate_back(2);
-        } else if (activities[i] == 15) {
-            a.rotate_left(0);
-        } else if (activities[i] == 16) {
-            a.rotate_left(1);
-        } else if (activities[i] == 17) {
-            a.rotate_left(2);
-        }
+        if (activities[i] == 0)rube_cub.rotate_up(0);
+        else if (activities[i] == 1) rube_cub.rotate_up(1);
+        else if (activities[i] == 2) rube_cub.rotate_up(2);
+        else if (activities[i] == 3)rube_cub.rotate_front(0);
+        else if (activities[i] == 4) rube_cub.rotate_front(1);
+        else if (activities[i] == 5) rube_cub.rotate_front(2);
+        else if (activities[i] == 6) rube_cub.rotate_right(0);
+        else if (activities[i] == 7) rube_cub.rotate_right(1);
+        else if (activities[i] == 8) rube_cub.rotate_right(2);
+        else if (activities[i] == 9) rube_cub.rotate_down(0);
+        else if (activities[i] == 10) rube_cub.rotate_down(1);
+        else if (activities[i] == 11) rube_cub.rotate_down(2);
+        else if (activities[i] == 12) rube_cub.rotate_back(0);
+        else if (activities[i] == 13) rube_cub.rotate_back(1);
+        else if (activities[i] == 14) rube_cub.rotate_back(2);
+        else if (activities[i] == 15) rube_cub.rotate_left(0);
+        else if (activities[i] == 16) rube_cub.rotate_left(1);
+        else if (activities[i] == 17) rube_cub.rotate_left(2);
+
     }
 }
 
-void assembleCube(Kubic_Rubica& a, int* activities, int size) {
+void assembleCube(Kubic_Rubica &rube_cub, int *activities, int size) {
     for (int i = size - 1; i >= 0; --i) {
         if (activities[i] == 0) {
-            a.rotate_down(0);
+            rube_cub.rotate_down(0);
         } else if (activities[i] == 1) {
-            a.rotate_down(1);
+            rube_cub.rotate_down(1);
+            rube_cub.rotate_right(2);
+            rube_cub.rotate_down(2);
+            rube_cub.rotate_up(2);
+            rube_cub.rotate_left(2);
         } else if (activities[i] == 2) {
-            a.rotate_down(2);
+            rube_cub.rotate_down(2);
+            rube_cub.rotate_left(1);
+            rube_cub.rotate_front(2);
+            rube_cub.rotate_back(2);
+            rube_cub.rotate_right(1);
         } else if (activities[i] == 3) {
-            a.rotate_back(0);
+            rube_cub.rotate_back(0);
+            rube_cub.rotate_down(2);
+            rube_cub.rotate_back(0);
+            rube_cub.rotate_front(0);
+            rube_cub.rotate_up(2);
         } else if (activities[i] == 4) {
-            a.rotate_back(1);
+            rube_cub.rotate_back(1);
+            rube_cub.rotate_front(1);
+            rube_cub.rotate_back(1);
         } else if (activities[i] == 5) {
-            a.rotate_back(2);
+            rube_cub.rotate_back(2);
+
         } else if (activities[i] == 6) {
-            a.rotate_left(0);
+            rube_cub.rotate_left(0);
+            rube_cub.rotate_right(2);
+            rube_cub.rotate_down(2);
+            rube_cub.rotate_up(2);
+            rube_cub.rotate_left(2);
         } else if (activities[i] == 7) {
-            a.rotate_left(1);
+            rube_cub.rotate_left(1);
+
         } else if (activities[i] == 8) {
-            a.rotate_left(2);
+            rube_cub.rotate_left(2);
+
         } else if (activities[i] == 9) {
-            a.rotate_up(0);
+            rube_cub.rotate_up(0);
+
         } else if (activities[i] == 10) {
-            a.rotate_up(1);
+            rube_cub.rotate_up(1);
+            rube_cub.rotate_right(1);
+            rube_cub.rotate_left(1);
         } else if (activities[i] == 11) {
-            a.rotate_up(2);
+            rube_cub.rotate_up(2);
+            rube_cub.rotate_front(1);
+            rube_cub.rotate_back(1);
         } else if (activities[i] == 12) {
-            a.rotate_front(0);
+            rube_cub.rotate_front(0);
+            rube_cub.rotate_left(1);
+            rube_cub.rotate_front(2);
+            rube_cub.rotate_back(2);
+            rube_cub.rotate_right(1);
         } else if (activities[i] == 13) {
-            a.rotate_front(1);
+            rube_cub.rotate_front(1);
         } else if (activities[i] == 14) {
-            a.rotate_front(2);
+            rube_cub.rotate_front(2);
+            rube_cub.rotate_right(1);
+            rube_cub.rotate_left(1);
         } else if (activities[i] == 15) {
-            a.rotate_right(0);
+            rube_cub.rotate_right(0);
+            rube_cub.rotate_right(2);
+            rube_cub.rotate_down(2);
+            rube_cub.rotate_up(2);
+            rube_cub.rotate_left(2);
         } else if (activities[i] == 16) {
-            a.rotate_right(1);
+            rube_cub.rotate_right(1);
+            rube_cub.rotate_front(1);
+            rube_cub.rotate_back(1);
         } else if (activities[i] == 17) {
-            a.rotate_right(2);
+            rube_cub.rotate_right(2);
         }
     }
 
@@ -591,11 +611,11 @@ int main(void) {
     }
 
     glClearColor(0.7f, 0.62f, 0.65f, 1);
-    Kubic_Rubica a = Kubic_Rubica();
+    Kubic_Rubica rube_cub = Kubic_Rubica();
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-    Camera *camera = new Camera(vec3(0.0f, 0, 1.0f), radians(40.0f));
+    Camera *camera = new Camera(vec3(1.0f, 1.0f, 1.0f), radians(60.0f));
     float lastTime = glfwGetTime();
     float delta = 0.0f;
     float camX = 0;
@@ -603,17 +623,22 @@ int main(void) {
     glEnable(GL_DEPTH_TEST);
     int i = 0;
     bool fl_start = 0;
+    camera->position -= camera->right * (float)5;
+    camera->position -= camera->front *  (float)8;
+
     while (!Window::isShouldClose()) {
         float currentTime = glfwGetTime();
         delta = currentTime - lastTime;
         lastTime = currentTime;
         Events::pullEvents();
+        float speed = 100;
+
 
         if (Events::jpressed(GLFW_KEY_N)) {
-            disassembleCube(a, activities, size);
+            disassembleCube(rube_cub, activities, size);
         }
         if (Events::jpressed(GLFW_KEY_M)) {
-            assembleCube(a, activities, size);
+            assembleCube(rube_cub, activities, size);
         }
         if (Events::jpressed(GLFW_KEY_ESCAPE)) {
             Window::setShouldClose(1);
@@ -621,7 +646,6 @@ int main(void) {
         if (Events::jclicked(GLFW_MOUSE_BUTTON_1)) {
             glClearColor(0.8f, 0.4f, 0.62f, 1);
         }
-        float speed = 100;
         if (Events::jpressed(GLFW_KEY_TAB)) {
             Events::toogleCursor();
         }
@@ -640,76 +664,76 @@ int main(void) {
 
 
         if ((Events::jpressed(GLFW_KEY_UP) && Events::pressed(GLFW_KEY_1))) {
-            a.rotate_up(0);
+            rube_cub.rotate_up(0);
 
         }
         if ((Events::jpressed(GLFW_KEY_UP) && Events::pressed(GLFW_KEY_2))) {
-            a.rotate_up(1);
+            rube_cub.rotate_up(1);
 
         }
         if ((Events::jpressed(GLFW_KEY_UP) && Events::pressed(GLFW_KEY_3))) {
-            a.rotate_up(2);
+            rube_cub.rotate_up(2);
         }
 
 
         if ((Events::jpressed(GLFW_KEY_DOWN) && Events::pressed(GLFW_KEY_1))) {
-            a.rotate_down(0);
+            rube_cub.rotate_down(0);
 
         }
         if ((Events::jpressed(GLFW_KEY_DOWN) && Events::pressed(GLFW_KEY_2))) {
-            a.rotate_down(1);
+            rube_cub.rotate_down(1);
 
         }
         if ((Events::jpressed(GLFW_KEY_DOWN) && Events::pressed(GLFW_KEY_3))) {
-            a.rotate_down(2);
+            rube_cub.rotate_down(2);
         }
 
 
         if ((Events::jpressed(GLFW_KEY_RIGHT) && Events::pressed(GLFW_KEY_1))) {
-            a.rotate_right(0);
+            rube_cub.rotate_right(0);
         }
         if ((Events::jpressed(GLFW_KEY_RIGHT) && Events::pressed(GLFW_KEY_2))) {
-            a.rotate_right(1);
+            rube_cub.rotate_right(1);
         }
         if ((Events::jpressed(GLFW_KEY_RIGHT) && Events::pressed(GLFW_KEY_3))) {
-            a.rotate_right(2);
+            rube_cub.rotate_right(2);
         }
 
 
         if ((Events::jpressed(GLFW_KEY_LEFT) && Events::pressed(GLFW_KEY_1))) {
-            a.rotate_left(0);
+            rube_cub.rotate_left(0);
         }
         if ((Events::jpressed(GLFW_KEY_LEFT) && Events::pressed(GLFW_KEY_2))) {
-            a.rotate_left(1);
+            rube_cub.rotate_left(1);
         }
         if ((Events::jpressed(GLFW_KEY_LEFT) && Events::pressed(GLFW_KEY_3))) {
-            a.rotate_left(2);
+            rube_cub.rotate_left(2);
         }
 
 
         if ((Events::jpressed(GLFW_KEY_X) && Events::pressed(GLFW_KEY_1))) {
-            a.rotate_front(0);
+            rube_cub.rotate_front(0);
 
         }
         if ((Events::jpressed(GLFW_KEY_X) && Events::pressed(GLFW_KEY_2))) {
-            a.rotate_front(1);
+            rube_cub.rotate_front(1);
 
         }
         if ((Events::jpressed(GLFW_KEY_X) && Events::pressed(GLFW_KEY_3))) {
-            a.rotate_front(2);
+            rube_cub.rotate_front(2);
         }
 
 
         if ((Events::jpressed(GLFW_KEY_Z) && Events::pressed(GLFW_KEY_1))) {
-            a.rotate_back(0);
+            rube_cub.rotate_back(0);
 
         }
         if ((Events::jpressed(GLFW_KEY_Z) && Events::pressed(GLFW_KEY_2))) {
-            a.rotate_back(1);
+            rube_cub.rotate_back(1);
 
         }
         if ((Events::jpressed(GLFW_KEY_Z) && Events::pressed(GLFW_KEY_3))) {
-            a.rotate_back(2);
+            rube_cub.rotate_back(2);
         }
 
         if (Events::_cursor_locked) {
@@ -729,7 +753,7 @@ int main(void) {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         shader->use();
         shader->uniformMatrix("projview", camera->getProjection() * camera->getView());
-        a.draw(shader);
+        rube_cub.draw(shader);
         i++;
         Window::swapBuffers();
 
